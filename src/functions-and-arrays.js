@@ -20,7 +20,8 @@ const findLongestWord = function (words) {
 };
 
 //console.log(findLongestWord(['hallo','jose', 'abc']));
-// Iteration #3: Calculate the sum
+// Iteration #3: Calculate the sum 
+//correct
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
@@ -31,6 +32,18 @@ const sumNumbers = function (numbers) {
   }
   return result;
 }
+
+// to do bonus generic sum
+const sum = function (mixedArr) {
+   
+  let result = 0;
+  for (let i = 0; i < mixedArr.length; i++) {
+    result += mixedArr[i]; 
+  }
+  return result;
+}
+
+//console.log(sum[6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10]);
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers 
@@ -53,10 +66,23 @@ const averageNumbers = function (numbersAvg) {
   return result / numbersAvg.length;
 }
 
-console.log(averageNumbers([]));
 
-// Level 2: Array of strings
+// Level 2: Array of strings - correct
+
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+const averageWordLength = function (wordsArr) { 
+  if (wordsArr.length === 0) {
+    return null;
+  }
+  let result = 0;  
+  for (let i = 0; i < wordsArr.length; i++) {
+    result += wordsArr[i].length;
+  } 
+  return result / wordsArr.length;
+}
+
+// to do Bonus - Iteratio 4.1 Generic Avg
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -72,6 +98,16 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
+
+const uniquifyArray = function (wordsUnique) {
+  if (wordsUnique.length === 0) {
+    return null;
+  }
+  wordsUnique.sort((a,b) => a.localeCompare(b));
+  console.log(wordsUnique);
+}
+
+console.log(uniquifyArray['crab', 'about', 'cast']);
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
