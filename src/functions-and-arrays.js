@@ -6,6 +6,20 @@ const maxOfTwoNumbers = (a, b) => a > b ? a : b;
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
 const findLongestWord = function (words) {
+  if (!words.length) {
+    return null;
+  }
+  let longestWordFound = words[0];
+  for (let word of words) {
+    if (word.length > longestWordFound.length) {
+      longestWordFound = word;
+    }
+  }
+  return longestWordFound;
+}
+
+
+/*const findLongestWord = function (words) {
   let result;
   if (words.length === 0) {
     return result = null;
@@ -13,11 +27,11 @@ const findLongestWord = function (words) {
     return result = words.toString();
   } else if (words.length > 1 ){
     return result = words.map( function(a, b) {
-       a.length > b.length ? a : b; 
+       a.length > b.length ? a.push : b; 
     });
   }  
   return result; 
-};
+};*/
 
 //console.log(findLongestWord(['hallo','jose', 'abc']));
 // Iteration #3: Calculate the sum 
@@ -27,8 +41,8 @@ const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 const sumNumbers = function (numbers) {
   let result = 0;
-  for (let i = 0; i < numbers.length; i++) {
-    result += numbers[i];
+  for (let number of numbers) {
+    result += number;
   }
   return result;
 }
@@ -37,13 +51,36 @@ const sumNumbers = function (numbers) {
 const sum = function (mixedArr) {
    
   let result = 0;
-  for (let i = 0; i < mixedArr.length; i++) {
-    result += mixedArr[i]; 
-  }
-  return result;
-}
+  for (let char of mixedArr) {
+    /*switch (typeof(char)) {
+      case 'boolean':
+        result += 1;
+        break;
+      case 'number':
+        result += char;
+        break;  
+      case 'string':
+        result += char.length;
+        break;  
+      default:
+        continue;    
+    }*/
 
-//console.log(sum[6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10]);
+    /* if (typeof(char) === 'string') {
+      result += char.length; 
+    }  else if ((typeof(char) === 'boolean') === true) {
+      result += 1;
+    } else if (typeof(char) === 'number') {
+      result += char;
+    } else if {
+      continue;
+    } */
+    return result;
+  }
+}  
+
+
+console.log(sum[6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10]);
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers 
@@ -51,19 +88,11 @@ const sum = function (mixedArr) {
 //correct
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-const averageNumbers = function (numbersAvg) {
-  if (numbersAvg.length === 0) { 
+const averageNumbers = function (array) {
+  if (!array.length) { 
     return null;
   }
-  let result = 0;  
-  for (let i = 0; i < numbersAvg.length; i++) {
-     if (numbersAvg.length === 1) {
-      return result += numbersAvg[i];
-    } else {
-     result += numbersAvg[i];
-    } 
-  }
-  return result / numbersAvg.length;
+  return sumNumbers(array) / array.length;
 }
 
 
@@ -72,12 +101,12 @@ const averageNumbers = function (numbersAvg) {
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
 const averageWordLength = function (wordsArr) { 
-  if (wordsArr.length === 0) {
+  if (!wordsArr.length) {
     return null;
   }
   let result = 0;  
-  for (let i = 0; i < wordsArr.length; i++) {
-    result += wordsArr[i].length;
+  for (let words of wordsArr) {
+    result += words.length;
   } 
   return result / wordsArr.length;
 }
@@ -99,15 +128,19 @@ const wordsUnique = [
   'bring'
 ];
 
-const uniquifyArray = function (wordsUnique) {
-  if (wordsUnique.length === 0) {
+const uniquifyArray = function (words) {
+  if (!words.length) {
     return null;
   }
-  wordsUnique.sort((a,b) => a.localeCompare(b));
-  console.log(wordsUnique);
+
+  let newArr = [];
+  for (let word of words) {
+    words.filter((a, b) => a !== b ? newArr.push(a) : newArr.push(b));
+  }  
+  return newArr;
 }
 
-console.log(uniquifyArray['crab', 'about', 'cast']);
+//console.log(uniquifyArray['crab', 'about', 'cast']);
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
@@ -151,3 +184,5 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+
