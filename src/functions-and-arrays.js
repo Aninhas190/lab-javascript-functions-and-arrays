@@ -5,7 +5,7 @@ const maxOfTwoNumbers = (a, b) => a > b ? a : b;
 // Iteration #2: Find longest word -to do
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-const findLongestWord = function (words) {
+const findLongestWord = (words) => {
   if (!words.length) {
     return null;
   }
@@ -23,7 +23,7 @@ const findLongestWord = function (words) {
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-const sumNumbers = function (numbers) {
+const sumNumbers = (numbers) => {
   let result = 0;
   for (let number of numbers) {
     result += number;
@@ -72,7 +72,7 @@ const sum = function (mixedArr) {
 //correct
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-const averageNumbers = function (array) {
+const averageNumbers = (array) => {
   if (!array.length) { 
     return null;
   }
@@ -84,7 +84,7 @@ const averageNumbers = function (array) {
 
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-const averageWordLength = function (wordsArr) { 
+const averageWordLength = (wordsArr) => { 
   if (!wordsArr.length) {
     return null;
   }
@@ -93,7 +93,7 @@ const averageWordLength = function (wordsArr) {
     result += words.length;
   } 
   return result / wordsArr.length;
-}
+};
 
 // to do Bonus - Iteratio 4.1 Generic Avg
 
@@ -116,15 +116,20 @@ const uniquifyArray = function (words) {
   if (!words.length) {
     return null;
   }
-  return words.filter((word, pos) => words.indexOf(word)== pos);
-}
+  return words.filter((word, pos) => words.indexOf(word) === pos);
+};
 
 //*console.log(uniquifyArray(['crab', 'about', 'cast', 'cast']));
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-
+const doesWordExist = (words, wordSearch) => {
+  if (!words.length) {
+    return null;
+  }
+  return words.filter(word => (wordSearch === word) ? true : false);
+};
 
 // Iteration #7: Count repetition
 const wordsCount = [
