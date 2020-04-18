@@ -18,22 +18,6 @@ const findLongestWord = function (words) {
   return longestWordFound;
 }
 
-
-/*const findLongestWord = function (words) {
-  let result;
-  if (words.length === 0) {
-    return result = null;
-  } else if (words.length === 1) {
-    return result = words.toString();
-  } else if (words.length > 1 ){
-    return result = words.map( function(a, b) {
-       a.length > b.length ? a.push : b; 
-    });
-  }  
-  return result; 
-};*/
-
-//console.log(findLongestWord(['hallo','jose', 'abc']));
 // Iteration #3: Calculate the sum 
 //correct
 
@@ -80,7 +64,7 @@ const sum = function (mixedArr) {
 }  
 
 
-console.log(sum[6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10]);
+//console.log(sum[6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10]);
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers 
@@ -113,7 +97,7 @@ const averageWordLength = function (wordsArr) {
 
 // to do Bonus - Iteratio 4.1 Generic Avg
 
-// Iteration #5: Unique arrays
+// Iteration #5: Unique arrays - correct
 const wordsUnique = [
   'crab',
   'poison',
@@ -132,18 +116,15 @@ const uniquifyArray = function (words) {
   if (!words.length) {
     return null;
   }
-
-  let newArr = [];
-  for (let word of words) {
-    words.filter((a, b) => a !== b ? newArr.push(a) : newArr.push(b));
-  }  
-  return newArr;
+  return words.filter((word, pos) => words.indexOf(word)== pos);
 }
 
-//console.log(uniquifyArray['crab', 'about', 'cast']);
+//*console.log(uniquifyArray(['crab', 'about', 'cast', 'cast']));
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+
 
 // Iteration #7: Count repetition
 const wordsCount = [
